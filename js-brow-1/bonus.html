@@ -16,10 +16,8 @@
         const boton = document.querySelector(".btn")
         const resultado = document.getElementById("resultado")
 
-        // Crea una página HTML con un input de tipo texto, un boton y un párrafo vacío. Utiliza JavaScript para capturar el valor del input y del boton, mostrarlo en el párrafo si la palabra escrita en el input es palindroma o no (es una palabra o frase que se lee igual en un sentido que en otro).
-
         boton.addEventListener('click', (e) => {
-            const valor = input.value.toLowerCase();// pasamos a minusculas el valor del input
+            const valor = input.value.toLowerCase().replace(/ /g, '');// pasamos a minusculas el valor del input y eliminamos los espacios
             const valorAlReves = valor.split("").reverse().join("");// lo reversamos
             if (valor === valorAlReves) {
                 resultado.innerText = `${valor} es palindromo`
