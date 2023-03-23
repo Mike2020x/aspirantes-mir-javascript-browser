@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Your Name" />
+    <title>TODO LIST</title>
+    <meta name="description" content="This is a front-end coding challenge - TODO APP" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="shortcut icon" href="./assets/check.svg" />
+</head>
+
+<body>
+    <header class="card">
+        <h1>TODO LIST</h1>
+        <button id="theme-switcher">
+            <img src="./assets/icon-sun.svg" alt="Cambiar Tema" />
+        </button>
+    </header>
+    <main>
+        <div class="card add">
+            <div class="cb-container">
+                <button id="add-btn">+</button>
+            </div>
+            <div class="txt-container">
+                <input type="text" class="txt-input" placeholder="Crear Nueva Tarea.." spellcheck="false"
+                    autocomplete="off" />
+            </div>
+        </div>
+        <ul class="todos"></ul>
+        <div class="card stat">
+            <p class="corner"><span id="items-left">0</span> Tareas Faltantes</p>
+            <div class="filter">
+                <button id="all" class="on">Todos </button>
+                <button id="active">Activo </button>
+                <button id="completed">Completado </button>
+            </div>
+            <div class="corner">
+                <button id="clear-completed">Limpiar Lista</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Arrastra para ordenar la lista</p>
+    </footer>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
