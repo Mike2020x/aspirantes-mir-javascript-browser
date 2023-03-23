@@ -1,9 +1,9 @@
 :root {
-  --ff-sans: "Cascadia Mono", sans-serif;
+  --ff-sans: "Cascadia mono", sans-serif;
   --base-font: 1.6rem;
   --fw-normal: 400;
   --fw-bold: 700;
-  --img-bg: url("../assets/fondo.png");
+  --img-bg: url("../assets/images/bg-desktop-dark.jpg");
   --clr-primary: hsl(0, 0%, 98%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-page-bg: hsl(235, 21%, 11%);
@@ -20,7 +20,7 @@
   --clr-box-shadow: hsl(0, 0%, 0%, 0.1);
 }
 
-/*Tema claro*/
+/* CHANGE CUSTOM PROPERTIES WHEN LIGHT THEME */
 
 body.light {
   --img-bg: url("../assets/fondo.png");
@@ -29,10 +29,10 @@ body.light {
   --clr-card-bg: hsl(0, 0%, 100%);
   --clr-gb-1: hsl(240, 8%, 24%);
   --clr-gb-2: hsl(243, 12%, 30%);
-  --clr-gb-3: hsl(240, 2%, 24%);
+  --clr-gb-3: hsl(252, 6%, 83%);
   --clr-gb-4: hsl(237, 10%, 64%);
   --clr-gb-5: hsl(252, 9%, 73%);
-  --clr-gb-6: hsl(256, 7%, 31%);
+  --clr-gb-6: hsl(252, 21%, 94%);
 }
 
 /* RESETS */
@@ -61,13 +61,17 @@ img {
   user-select: none;
 }
 
+/* BODY */
+
 body {
   font: var(--fw-normal) var(--base-font) var(--ff-sans);
-  background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 32%;
+  background: var(--clr-page-bg) var(--img-bg) no-repeat 0% 0% / 100vw 30rem;
   padding-top: 8rem;
   width: min(85%, 54rem);
   margin: auto;
 }
+
+/* INPUT AND BUTTON */
 
 input,
 button {
@@ -90,6 +94,8 @@ label {
   display: none;
 }
 
+/* ALL ARE CARDS  */
+
 .card {
   background-color: var(--clr-card-bg);
   display: flex;
@@ -98,6 +104,8 @@ label {
   padding: 1.9rem 2rem;
   gap: 2rem;
 }
+
+/* HEADER'S CARD */
 
 header.card {
   background: transparent;
@@ -111,6 +119,8 @@ header.card h1 {
   font-weight: 700;
   font-size: calc(var(--base-font) * 2);
 }
+
+/* CHECKBOX CONTAINER AND FIELD */
 
 .card .cb-container {
   width: 2.5rem;
@@ -138,12 +148,16 @@ header.card h1 {
   border-radius: inherit;
 }
 
+/* CHECKED CARD */
+
 .card .cb-container .cb-input:checked + .check {
-  background: url("../assets/check.svg"),
+  background: url("../assets/images/icon-check.svg"),
     linear-gradient(45deg, var(--clr-green), var(--clr-pink));
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* ADD CARD */
 
 .add {
   margin: 4rem 0 2.5rem 0;
@@ -195,6 +209,8 @@ body.light .add .txt-container .txt-input {
   font-weight: var(--fw-normal);
 }
 
+/* TODOS CONTAINER */
+
 .todos > * {
   transition: 0.4s ease;
 }
@@ -224,11 +240,15 @@ body.light .todos {
   box-shadow: 0 0 2rem 0.4rem var(--clr-box-shadow);
 }
 
+/* COMPLETED ITEM */
+
 .todos .card.checked .item {
   text-decoration: line-through;
   color: var(--clr-gb-3);
   text-decoration-color: var(--clr-gb-3);
 }
+
+/* CLEAR CONTAINER */
 
 .clear {
   cursor: pointer;
@@ -241,6 +261,8 @@ body.light .todos {
   opacity: 1;
   pointer-events: all;
 }
+
+/* STAT CONTAINER */
 
 .stat {
   border-radius: 0 0 0.5rem 0.5rem;
@@ -258,6 +280,8 @@ body.light .stat {
   box-shadow: 0 1rem 2rem -0.4rem var(--clr-box-shadow);
 }
 
+/* CORNERS */
+
 .stat .corner:last-child {
   display: flex;
   justify-content: flex-end;
@@ -266,6 +290,8 @@ body.light .stat {
 .stat .corner button:hover {
   color: var(--clr-primary);
 }
+
+/* FILTER BUTTONS */
 
 .stat .filter {
   display: flex;
@@ -288,9 +314,10 @@ footer {
   text-align: center;
   color: var(--clr-gb-5);
 }
-#active {
-  padding: 0px 10px;
-}
+
+/* JAVASCRIPT FUNCTIONS - STYLES */
+/* FILTER TODOS */
+
 .todos.active .card.checked,
 .todos.completed .card {
   transition: 0.4s;
@@ -300,7 +327,8 @@ footer {
   height: 0;
   pointer-events: none;
 }
-.act .todos.completed .card.checked {
+
+.todos.completed .card.checked {
   opacity: 1;
   padding: 1.9rem 2rem;
   height: auto;
@@ -313,6 +341,7 @@ footer {
   border-top: 0.2rem solid var(--clr-gb-6);
 }
 
+/* FALL ANIMATION */
 .todos .card.fall {
   pointer-events: none;
   animation: fall 0.2s forwards ease;
@@ -333,6 +362,7 @@ footer {
   }
 }
 
+/* DRAG AND DROP */
 .todos .card.dragging {
   opacity: 0.5;
 }
