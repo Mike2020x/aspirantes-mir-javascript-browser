@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Local Storage</title>
+    <style>
+        body {
+            padding: 10px;
+        }
+
+        input {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="name">Ingresa tu nombre</label>
+        <input type="text" id="name" name="name" placeholder="Ingresa tu nombre"> <br>
+        <label for="name">Ingresa tu correo</label>
+        <input type="email" id="input2" name="email" placeholder="Ingresa tu correo">
+        <button type="submit">Guardar</button>
+    </form>
+    <section>
+        <button id="del">Borrar datos</button>
+    </section>
+    <script>
+        // Obtener elementos del DOM
+        const form = document.querySelector('form');
+        const input = document.querySelector('#name');
+        const section = document.querySelector('section');
+        const input2 = document.querySelector('#input2');
+
+        // Manejar el evento de enviar el formulario
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const usuario = {
+                "name": input.value,
+                "email": input2.value
+            }
+
+            localStorage.setItem("usuario", JSON.stringify(usuario))
+            location.reload();
+
+
+        });
+
+        // Función para mostrar el nombre guardado en localStorage
+        function showName() {
+            const usuario = JSON.parse(localStorage.getItem("usuario"))
+            const nombre = document.createElement("h2");
+            nombre.textContent = usuario.name || "No hay nombres guardados"
+            section.appendChild(nombre)
+
+            const email = document.createElement("h2");
+            email.textContent = usuario.email || "No hay email"
+            section.appendChild(email)
+        }
+
+        // Función para borrar el nombre guardado en localStorage
+        function deleteName() {
+            localStorage.removeItem("usuario")
+        }
+
+        const del = document.getElementById("del")
+        del.addEventListener('click', (event) => {
+            deleteName()
+            location.reload();
+        })
+        // Mostrar el nombre guardado al cargar la página
+        document.addEventListener('DOMContentLoaded', showName)
+    </script>
+</body>
+
+</html>
